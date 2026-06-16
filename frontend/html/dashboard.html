@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMBS - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="dashboard-body">
+    
+    <header class="dashboard-header">
+        <div class="header-brand">Makati Human Milk Bank</div>
+        <div class="header-user">
+            <span id="userGreeting">Welcome, Staff</span>
+            <button id="logoutBtn" class="logout-button">Logout</button>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        
+        <nav class="sidebar">
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="active">🏠 Dashboard Home</a></li>
+                <li><a href="donors.html">👩‍👧 Manage Donors</a></li>
+                <li><a href="inventory.html">📦 Inventory Management</a></li>
+                <li><a href="dispensing.html">📋 Dispensing & Inquiries</a></li>
+                <li><a href="reports.html">📊 Generate Reports</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>System Overview</h2>
+            <p>Select a module from the sidebar to begin processing transactions.</p>
+            
+            <div class="card-grid">
+                <div class="data-card">
+                    <h3>Pending Lab Results</h3>
+                    <p class="card-value">0</p>
+                </div>
+                <div class="data-card">
+                    <h3>Available Milk</h3>
+                    <p class="card-value">0 mL</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

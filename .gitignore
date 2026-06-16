@@ -1,0 +1,17 @@
+# Node runtime dependencies library warehouse
+node_modules/
+
+# Local sensitive environment variables configuration panel
+.env
+
+# Diagnostic crash logs and system state files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# Temporary test/setup scripts
+test-db.js
+seed-test-user.js
+reset-admin-password.js

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makati HMB - Portal Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main class="viewport-wrapper">
+        <section class="login-panel">
+            <header class="panel-header">
+                <h1 class="brand-title">Makati Human Milk Bank</h1>
+                <p class="brand-subtitle">Management Information System Login</p>
+            </header>
+            
+            <form id="loginForm" class="form-layout">
+                <div class="input-group">
+                    <label for="username" class="field-label">Username</label>
+                    <input type="text" id="username" autocomplete="username" required class="form-input">
+                </div>
+
+                <div class="input-group">
+                    <label for="password" class="field-label">Password</label>
+                    <input type="password" id="password" autocomplete="current-password" required class="form-input">
+                </div>
+
+                <button type="submit" id="submitBtn" class="action-button">Sign In</button>
+            </form>
+            <div id="toastMessage" class="feedback-toast hidden"></div>
+        </section>
+    </main>
+    <script src="../js/main.js"></script>
+</body>
+</html>
