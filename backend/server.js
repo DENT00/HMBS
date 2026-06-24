@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 // 3. Endpoint Routes (The Waiters)
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/donors', require('./routes/donorRoutes'));
+app.use('/api/inventory', require('./routes/inventoryRoutes'));
 // app.use('/api/milk', require('./routes/milkRoutes'));
 
 // 4. Default Route (The Front Door)
