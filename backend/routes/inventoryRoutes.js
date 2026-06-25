@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-
-//brings the new inventory chef  into waiter's file
 const inventoryController = require('../controllers/inventoryController');
-//handle get request
+
+// Existing GET Route (Checking the freezer)
 router.get('/', inventoryController.getAllInventory);
-//export
+
+// NEW POST Route (Putting milk into the freezer)
+router.post('/', inventoryController.addInventory);
+
 module.exports = router;
