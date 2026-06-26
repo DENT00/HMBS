@@ -7,8 +7,7 @@ exports.dispenseMilk = async (req, res) => {
     try {
         await connection.beginTransaction();
 
-        const { inventory_id, beneficiary_id, volume_ml, dispensing_date } = req.body;
-        const staff_id = req.staff.staff_id;
+        const { inventory_id, beneficiary_id, volume_ml, dispensing_date, staff_id } = req.body;
 
         // Lock inventory row
         const [invRows] = await connection.query(

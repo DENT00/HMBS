@@ -1,6 +1,40 @@
 // controllers/inquiryController.js
 const pool = require('../config/db');
 
+exports.getAllInquiries = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM Inquiry ORDER BY inquiry_date DESC');
+        res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+exports.searchInquiries = async (req, res) => {
+    try {
+        const { q } = req.body;
+        const search = `%${q || ''}%`;
+        const [rows] = await pool.query(
+            `SELECT * FROM Inquiry 
+             WHERE inquiry_id LIKE ? OR status LIKE ?`,
+            [search, search]
+        );
+        res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+exports.getInquiry = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM Inquiry WHERE inquiry_id = ?', [req.params.id]);
+        if (rows.length === 0) return res.status(404).json({ error: 'Inquiry not found.' });
+        res.json(rows[0]);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 exports.createInquiry = async (req, res) => {
     try {
         const { beneficiary_id, requested_volume_ml, inquiry_date } = req.body;
@@ -36,4 +70,36 @@ exports.updateInquiryStatus = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
+};
+
+exports.createInquiryResponse = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
+};
+
+exports.forwardInquiry = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
+};
+
+exports.closeInquiry = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
+};
+
+exports.reopenInquiry = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
+};
+
+exports.assignInquiry = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
+};
+
+exports.unassignInquiry = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
+};
+
+exports.transferInquiry = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
+};
+
+exports.mergeInquiries = async (req, res) => {
+    res.status(501).json({ error: 'Not implemented.' });
 };

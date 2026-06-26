@@ -17,6 +17,10 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/donors', require('./routes/donorRoutes'));
 app.use('/api/inventory', require('./routes/inventoryRoutes'));
 app.use('/api/pasteurization', require('./routes/pasteurizationRoutes'));
+app.use('/api/donations', require('./routes/donationsRoutes'));
+app.use('/api/beneficiaries', require('./routes/beneficiaryRoutes'));
+app.use('/api/inquiries', require('./routes/inquiryRoutes'));
+app.use('/api/dispensing', require('./routes/dispensingRoutes'));
 // app.use('/api/milk', require('./routes/milkRoutes'));
 
 // 4. Default Route (The Front Door)
