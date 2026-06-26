@@ -1,13 +1,22 @@
 const pool = require('../config/db');
 
+exports.getAllDonations = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM Donations');
+        res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 // ---------- CREATE DONATION ----------
 exports.createDonation = async (req, res) => {
     const connection = await pool.getConnection();
     try {
         await connection.beginTransaction();
 
-        const { donor_id, program_id, volume_ml, collection_date } = req.body;
-        const staff_id = req.staff.staff_id;
+        const { donor_id, program_id, volume_ml, collection_date, staff_id } = req.body;
+        //const staff_id = req.staff.staff_id;
 
         // 1. Validate per-session limit (30–240 mL)
         if (volume_ml < 30 || volume_ml > 240) {
@@ -106,8 +115,8 @@ exports.updatePrePasteurizationLab = async (req, res) => {
 // ---------- CREATE PASTEURIZATION BATCH ----------
 // Select multiple 'Passed' donations (from any program) and create a pasteurization batch
 exports.createPasteurizationBatch = async (req, res) => {
-    const { donation_ids, pasteurization_date } = req.body; // array of donation IDs
-    const staff_id = req.staff.staff_id;
+    const { donation_ids, pasteurization_date, staff_id } = req.body;// array of donation IDs
+    //const staff_id = req.staff.staff_id;
 
     const connection = await pool.getConnection();
     try {
