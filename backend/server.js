@@ -21,7 +21,7 @@ app.use('/api/donations', require('./routes/donationsRoutes'));
 app.use('/api/beneficiaries', require('./routes/beneficiaryRoutes'));
 app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 app.use('/api/dispensing', require('./routes/dispensingRoutes'));
-// app.use('/api/milk', require('./routes/milkRoutes'));
+
 
 // 4. Default Route (The Front Door)
 app.get('/', (req, res) => {
